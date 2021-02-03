@@ -68,9 +68,6 @@
 #define ASS_JAM 0
 #endif
 
-// test
-#define APRIL_FOOLS
-
 // holiday toggles!
 
 #if (BUILD_TIME_MONTH == 10)

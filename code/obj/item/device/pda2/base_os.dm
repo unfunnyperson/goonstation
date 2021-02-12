@@ -152,7 +152,6 @@
 
 				if(MODE_MESSAGE)
 					//Messenger.  Uses Radio.  Is a messenger.
-					// src.master.overlays = null //Remove existing alerts
 					src.master.update_overlay("idle") //Remove existing alerts
 					. += "<h4>SpaceMessenger V4.0.5</h4>"
 
@@ -974,6 +973,8 @@
 				return 1
 
 			message = copytext(adminscrub(message), 1, 257)
+
+			phrase_log.log_phrase("pda", message)
 
 			if (findtext(message, "bitcoin") != 0 || findtext(message, "drug") != 0 || findtext(message, "pharm") != 0 || findtext(message, "lottery") != 0 || findtext(message, "scient") != 0 || findtext(message, "luxury") != 0 || findtext(message, "vid") != 0 || findtext(message, "quality") != 0)
 				usr.unlock_medal("Spamhaus", 1)

@@ -1762,9 +1762,8 @@
 			playsound(src.loc, src.sound_damaged, 50, 2)
 			if (src.health == 0)
 				src.visible_message("<span class='alert'><b>[src.name] is destroyed!</b></span>")
-				SPAWN_DBG(0)
-					robogibs(src.loc,null)
 				playsound(src.loc, src.sound_destroyed, 50, 2)
+				robogibs(src.loc, null)
 				qdel(src)
 				return
 			if (src.health <= 70 && !src.malfunction && prob(33))
@@ -1920,6 +1919,13 @@
 
 /obj/item/paper/manufacturer_blueprint/loafer
 	blueprint = /datum/manufacture/mechanics/loafer
+
+
+
+/******************** AI Display Blueprints (should be temporary but we know how that goes in coding) *******************/
+
+/obj/item/paper/manufacturer_blueprint/ai_status_display
+	blueprint = /datum/manufacture/mechanics/ai_status_display
 
 
 /******************** Alastor Pattern Thruster Blueprints *******************/
@@ -2267,6 +2273,7 @@
 	/datum/manufacture/jumpsuit_brown,
 	/datum/manufacture/jumpsuit_black,
 	/datum/manufacture/jumpsuit_orange,
+	/datum/manufacture/pride_lgbt,
 	/datum/manufacture/pride_ace,
 	/datum/manufacture/pride_aro,
 	/datum/manufacture/pride_bi,
@@ -2364,6 +2371,7 @@
 	/datum/manufacture/jumpsuit_brown,
 	/datum/manufacture/jumpsuit_black,
 	/datum/manufacture/jumpsuit_orange,
+	/datum/manufacture/pride_lgbt,
 	/datum/manufacture/pride_ace,
 	/datum/manufacture/pride_aro,
 	/datum/manufacture/pride_bi,

@@ -338,6 +338,7 @@ THROWING DARTS
 	name = "mind protection health implant"
 	icon_state = "implant-b"
 	impcolor = "b"
+	var/canprotect = 1
 
 /obj/item/implant/freedom
 	name = "freedom implant"
@@ -655,8 +656,12 @@ THROWING DARTS
 			if (ismob(user)) user.show_text("[src] has been used up!", "red")
 			return 0
 		for(var/obj/item/implant/health/security/anti_mindslave/AM in H.implant)
-			boutput(user, "<span class='alert'>[H] is protected from enslaving by \an [AM.name]!</span>")
-			return 0
+			if(AM.canprotect == 1)
+				boutput(user, "<span class='alert'>[H] is protected from enslaving by \an [AM.name]!</span>")
+				AM.canprotect = 0
+				src.loc.icon_state = "implanter0"
+				src.Del()
+				return 0
 		// It might happen, okay. I don't want to have to adapt the override code to take every possible scenario (no matter how unlikely) into considertion.
 		if (H.mind && ((H.mind.special_role == "vampthrall") || (H.mind.special_role == "spyslave")))
 			if (ismob(user)) user.show_text("<b>[H] seems to be immune to being enslaved!</b>", "red")

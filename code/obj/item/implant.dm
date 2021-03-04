@@ -660,7 +660,7 @@ THROWING DARTS
 				boutput(user, "<span class='alert'>[H] is protected from enslaving by \an [AM.name]!</span>")
 				AM.canprotect = 0
 				src.loc.icon_state = "implanter0"
-				src.Del()
+				qdel(src)
 				return 0
 		// It might happen, okay. I don't want to have to adapt the override code to take every possible scenario (no matter how unlikely) into considertion.
 		if (H.mind && ((H.mind.special_role == "vampthrall") || (H.mind.special_role == "spyslave")))

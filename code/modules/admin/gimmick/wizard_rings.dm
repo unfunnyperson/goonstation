@@ -59,11 +59,17 @@ ABSTRACT_TYPE(/obj/item/clothing/gloves/ring/wizard)
 		unequipped(var/mob/user)
 			..()
 			var/show_message = 0
-			if (user?.bioHolder.HasEffect("telekinesis"))
-				user.bioHolder.RemoveEffect("telekinesis")
-				show_message = 1
 			if (user?.bioHolder.HasEffect("hulk"))
 				user.bioHolder.RemoveEffect("hulk")
+				show_message = 1
+			if (user?.bioHolder.HasEffect("telekinesis_drag"))
+				user.bioHolder.RemoveEffect("telekinesis_drag")
+				show_message = 1
+			if (user?.bioHolder.HasEffect("regenerator_super"))
+				user.bioHolder.RemoveEffect("regenerator_super")
+				show_message = 1
+			if (user?.bioHolder.HasEffect("resist_electric"))
+				user.bioHolder.RemoveEffect("resist_electric")
 				show_message = 1
 			if (show_message)
 				boutput(user, "<span class='alert'><b>Removing [src] removes its powers with it!</b></span>")
